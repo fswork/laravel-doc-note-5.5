@@ -174,3 +174,68 @@ $this->app->bind('ReportAggregator', function ($app) {
 	$api = $this->app->makeWith('HelpSpot\API', ['id' => 1]);
 
 ### 自动注入
+另外，也是最重要的，通过类的构造方法的类型提示来注入依赖，包括[控制器](controller)，[事件监听](event)，[队列](queue)，[中间件][middleware]都支持这种方式。实操中，这是最常用的解析方式。
+
+例如，可以在控制器的构造方法中使用类型提示的方式注入一个仓库，该仓库会被自动解析，并注入到类中：
+
+	<?php
+
+	namespace App\Http\Controllers;
+
+	use App\Users\Repository as UserRepository;
+
+	class UserController extends Controller
+	{
+	    /**
+	     * The user repository instance.
+	     */
+	    protected $users;
+
+	    /**
+	     * Create a new controller instance.
+	     *
+	     * @param  UserRepository  $users
+	     * @return void
+	     */
+	    public function __construct(UserRepository $users)
+	    {
+	        $this->users = $users;
+	    }
+
+	    /**
+	     * Show the user with the given ID.
+	     *
+	     * @param  int  $id
+	     * @return Response
+	     */
+	    public function show($id)
+	    {
+	        //
+	    }
+	}
+
+## #容器事件
+服务容器在解析对象时会触发一个事件。可以监听该事件通过 `resolving` 方法：
+
+	$this->app->resolving(function ($object, $app) {
+	    // Called when container resolves object of any type...
+	});
+
+	$this->app->resolving(HelpSpot\API::class, function ($api, $app) {
+	    // Called when container resolves objects of type "HelpSpot\API"...
+	});
+
+如你所见，被解析的对象会传递到这个回调函数中，允许在对象被消费之前设置一些附加的属性。
+
+## PSR-11
+Laravel的服务容器实现了PSR-11接口。因此，可以提示PSR-11容器接口来获取Laravel服务器容器的实例：
+
+	use Psr\Container\ContainerInterface;
+
+	Route::get('/', function (ContainerInterface $container) {
+	    $service = $container->get('Service');
+
+	    //
+	});
+
+> 如果在标识没有绑定到容器时就调用了get方法，会抛出异常。
