@@ -57,6 +57,7 @@
 |get()|获取多条|[详细](https://d.laravel-china.org/docs/5.5/queries#%E4%BB%8E%E6%95%B0%E6%8D%AE%E8%A1%A8%E4%B8%AD%E8%8E%B7%E5%8F%96%E6%89%80%E6%9C%89%E7%9A%84%E6%95%B0%E6%8D%AE%E5%88%97)|
 |first()|查询单条|[详细](https://d.laravel-china.org/docs/5.5/queries#%E4%BB%8E%E6%95%B0%E6%8D%AE%E8%A1%A8%E4%B8%AD%E8%8E%B7%E5%8F%96%E5%8D%95%E4%B8%AA%E5%88%97%E6%88%96%E8%A1%8C)|
 |value()|查询标量值|[详细](https://d.laravel-china.org/docs/5.5/queries#%E4%BB%8E%E6%95%B0%E6%8D%AE%E8%A1%A8%E4%B8%AD%E8%8E%B7%E5%8F%96%E5%8D%95%E4%B8%AA%E5%88%97%E6%88%96%E8%A1%8C)|
+|find()|利用主键查询一条|[详细]()|
 |pluck()|查询列|[详细](https://d.laravel-china.org/docs/5.5/queries#%E8%8E%B7%E5%8F%96%E4%B8%80%E5%88%97%E7%9A%84%E5%80%BC)|
 |count()|记录数|[详细](https://d.laravel-china.org/docs/5.5/queries#aggregates)|
 |max()|最大值|[详细](https://d.laravel-china.org/docs/5.5/queries#aggregates)|
@@ -76,7 +77,7 @@
 |where(function(){})|复杂逻辑条件|[详细](https://d.laravel-china.org/docs/5.5/queries#where-clauses)|
 |whereBetween()|between and 条件|[详细](https://d.laravel-china.org/docs/5.5/queries#%E5%85%B6%E5%AE%83-Where-%E5%AD%90%E5%8F%A5)|
 |whereNotBetween()|not between and 条件|[详细](https://d.laravel-china.org/docs/5.5/queries#%E5%85%B6%E5%AE%83-Where-%E5%AD%90%E5%8F%A5)|
-|wherein()|in 条件|[详细](https://d.laravel-china.org/docs/5.5/queries#%E5%85%B6%E5%AE%83-Where-%E5%AD%90%E5%8F%A5)|
+|whereIn()|in 条件|[详细](https://d.laravel-china.org/docs/5.5/queries#%E5%85%B6%E5%AE%83-Where-%E5%AD%90%E5%8F%A5)|
 |whereNotIn()|not in 条件|[详细](https://d.laravel-china.org/docs/5.5/queries#%E5%85%B6%E5%AE%83-Where-%E5%AD%90%E5%8F%A5)|
 |whereNull()|is null 条件|[详细](https://d.laravel-china.org/docs/5.5/queries#%E5%85%B6%E5%AE%83-Where-%E5%AD%90%E5%8F%A5)|
 |whereNotNull()|is not null 条件|[详细](https://d.laravel-china.org/docs/5.5/queries#%E5%85%B6%E5%AE%83-Where-%E5%AD%90%E5%8F%A5)|
